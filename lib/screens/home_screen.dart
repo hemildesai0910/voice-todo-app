@@ -174,21 +174,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with SingleTickerProvid
         appBar: AppBar(
           title: const Text('Voice Todo'),
           centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.sync),
-              onPressed: () async {
-                _setLoading(true, 'Syncing tasks...');
-                try {
-                  await ref.read(tasksProvider.notifier).syncWithCloud();
-                } catch (e) {
-                  _showError('Failed to sync tasks: $e');
-                } finally {
-                  _setLoading(false);
-                }
-              },
-            ),
-          ],
         ),
         body: Column(
           children: [

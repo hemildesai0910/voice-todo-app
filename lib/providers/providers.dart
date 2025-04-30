@@ -61,9 +61,4 @@ class TasksNotifier extends StateNotifier<List<Task>> {
       await _loadTasks();
     }
   }
-
-  Future<void> syncWithCloud() async {
-    await _taskService.syncWithCloud();
-    await _loadTasks();
-  }
 } 
